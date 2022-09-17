@@ -244,3 +244,89 @@ void problema4() {
 	atribuirePb4Fisa(x, n);
 	afisareMatrice(x, n, n);
 }
+
+// Problema 6
+// Se citeste un numar k.
+// Realizati o noua matrice ce are pe
+// linii cifrele lui k.
+//
+// Exemplu pentru k = 1274 :
+//
+//		1 1 1 1
+//		2 2 2 2
+//		7 7 7 7
+//		4 4 4 4
+
+void problema6() {
+	int k;
+	cout << "Introduceti un numar : ";
+	cin >> k;
+	int cifre = countCifre(k);
+	int x[100][100];
+	atribuirePb6Fisa(x, k, cifre);
+	afisareMatrice(x, cifre, cifre);
+}
+
+// Problema 7
+// Se considera tabloul bidimensional cu m
+// linii si n coloane ale carui elemente
+// sunt cifre 0 si 1 (matrice binara). Scrieti
+// programul C++ care citeste din fisierul
+// MATRICE1.IN de pe prima linie numerele
+// naturale m si n, iar de pe celelalte m linii
+// cate n elemente ale tabloului bidimensional.
+// 
+// Programul determina indicii linilor pe care
+// se afla cele mai multe valori de 1 si ii
+// afiseaza cate unul pe un singur rand.
+//
+// Exemplu pentru m = 4, n = 5 si matricea :
+// 
+//  4 5
+//	1 0 1 0 1
+//	1 0 1 1 1
+//	0 1 1 1 1
+//	0 1 0 0 0
+//
+// Se afiseaza : 
+// 2 3
+
+void problema7() {
+	int m, n;
+	int x[100][100];
+	citireFisierPb7(x, m, n);
+	afisareMatrice(x, m, n);
+	cout << endl;
+	rezolvarePb7(x, m, n);
+}
+
+// Problema 8
+// Se considera un tablou bidimensional cu
+// m linii si n coloane, ale carui elemente apartin
+// multimii {0, 1, 2}. Scrieti un program C/C++
+// care citeste din fisier valorile m, n si elementele
+// tabloului si care afiseaza pe ecran numerele de
+// ordine ale coloanelor pentru care produsul
+// elementelor situate pe ele, este maxim. Liniile si
+// coloanele tabloului se numeroteaza de la 1 la m
+// respectiv de la 1 la n. Numerele se vor afisa
+// separate prin cate un spatiu.
+// 
+// Exemplu pentru m = 4 si n = 5, iar tabloul este : 
+// 
+//  2 1 1 0 2
+//  1 1 1 1 0
+//  2 2 2 1 1
+//  1 2 1 1 2 
+//
+// Se va afisa :
+// 1 2
+
+void problema8() {
+	int m, n;
+	int x[100][100];
+	citireMatriceFisier(x, m, n);
+	afisareMatrice(x, m, n);
+	cout << endl;
+	rezolvarePb8(x, m, n);
+}

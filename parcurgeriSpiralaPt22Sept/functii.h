@@ -299,5 +299,107 @@ void atribuirePb4Fisa(int x[100][100], int n) {
 	}
 }
 
+// Pentru Problema 6 :
+
+int countCifre(int n) {
+	int c = 0;
+	while (n != 0) {
+		c++;
+		n /= 10;
+	}
+	return c;
+}
+
+int variabilaPb6(int c) {
+	double p = 0.1;
+	while (c > 0) {
+		p *= 10;
+		c--;
+	}
+	return p;
+}
+
+void atribuirePb6Fisa(int x[100][100], int k, int cifre) {
+	for (int i = 0, v = variabilaPb6(cifre); i < cifre; i++) {
+		for (int j = 0; j < cifre; j++) {
+			x[i][j] = (k / v) % 10;
+		}
+		v /= 10;
+	}
+}
+
+// Pentru Problema 7 :
+
+void citireFisierPb7(int x[100][100], int& m, int& n) {
+	ifstream f("MATRICE1.txt");
+	f >> m, f >> n;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < n; j++) {
+			f >> x[i][j];
+		}
+	}
+}
+
+int countAparitiiNrLinie(int x[100][100], int n, int i, int nr) {
+	int c = 0;
+	for (int j = 0; j < n; j++) {
+		if (x[i][j] == nr) {
+			c++;
+		}
+	}
+	return c;
+}
+
+int maxAparitii1MatriceBinara(int x[100][100], int m, int n) {
+	int max = 0;
+	for (int i = 0; i < m; i++) {
+		int c = countAparitiiNrLinie(x, n, i, 1);
+		if (c > max) {
+			max = c;
+		}
+	}
+	return max;
+}
+
+void rezolvarePb7(int x[100][100], int m, int n) {
+	int max = maxAparitii1MatriceBinara(x, m, n);
+	cout << "Numarul maxim de aparitii este " << max << ", iar liniile sunt : " << endl;
+	for (int i = 0; i < m; i++) {
+		if (countAparitiiNrLinie(x, n, i, 1) == max) {
+			cout << i + 1 << " ";
+		}
+	}
+}
+
+// Pentru Problema 8 : 
+
+int produsElementeColoana(int x[100][100], int m, int j) {
+	int p = 1;
+	for (int i = 0; i < m; i++) {
+		p *= x[i][j];
+	}
+	return p;
+}
+
+int maxProdusColoane(int x[100][100], int m, int n) {
+	int max = 0;
+	for (int j = 0; j < n; j++) {
+		int p = produsElementeColoana(x, m, j);
+		if (p > max) {
+			max = p;
+		}
+	}
+	return max;
+}
+
+void rezolvarePb8(int x[100][100], int m, int n) {
+	int max = maxProdusColoane(x, m, n);
+	cout << "Produsul maxim al coloanelor este " << max << ", iar coloanele sunt : " << endl;
+	for (int j = 0; j < n; j++) {
+		if (produsElementeColoana(x, m, j) == max) {
+			cout << j + 1 << " ";
+		}
+	}
+}
 
 
