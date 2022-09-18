@@ -330,3 +330,80 @@ void problema8() {
 	cout << endl;
 	rezolvarePb8(x, m, n);
 }
+
+// Problema 9
+// Scrieti un program C/C++ care citeste de la tastatura
+// un numar natural n (1 <= n <= 6) si elementele unui
+// tablou bidimensional A cu n linii si n coloane,
+// care memoreaza numere naturale mai mici decat 100,
+// si afiseaza pe ecran (daca exista), sperate prin
+// cate un spatiu, elementele din matrice care au
+// proprietatea ca sunt egale cu produsul celorlalte
+// elemente aflate pe aceeasi coloana.
+//
+// Exemplu pentru matricea :
+//	1  1  5  10 2
+//	6  11 1  1  4
+//	6  2  5  5  3
+//	1  22 12 2 10
+//	16 1  7  1  8
+//
+// Se va afisa :
+// 10 22
+
+void problema9() {
+	int n;
+	int x[100][100];
+	citireTastaturaPb9(x, n);
+	cout << "Avem :" << endl;
+	afisareMatrice(x, n, n);
+	cout << endl;
+	rezolvarePb9(x, n);
+}
+
+// Problema 10
+// Sa se afiseze indicii coloanelor care au toate
+// elementele pe coloana in ordine strict
+// crescatoare. 
+// 
+// In care ca nici o coloana nu are toate
+// elementele in ordine strict crescatoate se va
+// afisa mesajul NU.
+
+void problema10() {
+	int m, n;
+	int x[100][100];
+	citireMatriceFisier(x, m, n);
+	cout << "Avem :" << endl;
+	afisareMatrice(x, m, n);
+	cout << endl;
+	rezolvarePb10(x, m, n);
+}
+
+// Problema 11
+// O matrice patratica cu n linii si n coloane se numeste
+// triunghiulara superior daca toate lementele aflate
+// sub diagonala principala sunt nule.
+// 
+// Se citeste de la tastatura (sau din fisier) o matrice
+// patratica cu n linii si n coloane.
+// 
+// Realizati un program care verifica daca matricea este
+// sau nu triunghiulara superior, tiparind un mesaj
+// corespunzator.
+
+void problema11() {
+	int n;
+	int x[100][100];
+	citireMatriceFisier(x, n, n);
+	cout << "Avem :" << endl;
+	afisareMatrice(x, n, n);
+	cout << endl << "Matricea";
+	if (esteTriunghiularaSuperior(x, n)) {
+		cout << " este ";
+	}
+	else {
+		cout << " nu este ";
+	}
+	cout << "triunghiulara superior.";
+}

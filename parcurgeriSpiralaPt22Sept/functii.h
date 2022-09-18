@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
@@ -402,4 +403,91 @@ void rezolvarePb8(int x[100][100], int m, int n) {
 	}
 }
 
+// Pentru Problema 9
 
+void citireTastaturaPb9(int x[100][100], int& n) {
+	cout << "Introduceti n : ";
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << "Introduceti x[" << i << "][" << j << "] : ";
+			cin >> x[i][j];
+		}
+	}
+}
+
+int maxColoana(int x[100][100], int n, int j) {
+	int max = 0;
+	for (int i = 0; i < n; i++) {
+		if (x[i][j] > max) {
+			max = x[i][j];
+		}
+	}
+	return max;
+}
+
+bool eProdNrColoanaEgalY(int x[100][100], int n, int j, int y) {
+	int p = 1;
+	for (int i = 0; i < n; i++) {
+		if (x[i][j] != y) {
+			p *= x[i][j];
+		}
+	}
+	if (p == y) {
+		return true;
+	}
+	return false;
+}
+
+void rezolvarePb9(int x[100][100], int n) {
+	int c = 0;
+	string raspuns = "Numerele cu aceasta proprietate sunt :\n";
+	for (int j = 0; j < n; j++) {
+		int max = maxColoana(x, n, j);
+		if (eProdNrColoanaEgalY(x, n, j, max)) {
+			raspuns = raspuns + to_string(max) + " ";
+			c++;
+		}
+	}
+	if (c == 0) {
+		raspuns = "Nu exista numere cu aceasta proprietate.";
+	}
+	cout << raspuns;
+}
+
+// Pentru Problema 10
+
+bool areColNrStrictCrescator(int x[100][100], int n, int j) {
+	for (int i = 0; i < n - 1; i++) {
+		if (x[i][j] >= x[i + 1][j]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void rezolvarePb10(int x[100][100], int m, int n) {
+	int c = 0;
+	for (int j = 0; j < n; j++) {
+		if (areColNrStrictCrescator(x, n, j)) {
+			cout << j + 1 << " ";
+			c++;
+		}
+	}
+	if (c == 0) {
+		cout << "NU";
+	}
+}
+
+// Pentru Problema 11
+
+bool esteTriunghiularaSuperior(int x[100][100], int n) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (j < i && x[i][j] != 0) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
